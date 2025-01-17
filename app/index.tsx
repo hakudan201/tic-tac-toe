@@ -1,63 +1,64 @@
-import { Text, TouchableOpacity, Image, View, StyleSheet } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { Image, View, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
+import Layout from '@/components/Layout';
+import Button from '@/components/Button';
 
 export default function Index() {
+  const router = useRouter();
+
   return (
-    <LinearGradient
-      colors={['#5D5FEF', '#843CE0']}
-      style={styles.linearGradient}>
+    <Layout>
       <View style={styles.mainTitleContainer}>
         <Image
-          source={require('../assets/images/main-title.png')}
+          source={require('../assets/images/index/main-title.png')}
           style={styles.mainTitleImage}
         />
         <View style={styles.topStarsContainer}>
           <Image
-            source={require('../assets/images/star-small.png')}
+            source={require('../assets/images/index/star-small.png')}
             style={[styles.starSmall, { marginLeft: -75 }]}
           />
           <Image
-            source={require('../assets/images/star-small.png')}
+            source={require('../assets/images/index/star-small.png')}
             style={[styles.starSmall, { marginLeft: 175 }]}
           />
         </View>
         <View style={styles.middleStarsContainer}>
           <Image
-            source={require('../assets/images/star-small.png')}
+            source={require('../assets/images/index/star-small.png')}
             style={[styles.starSmall, { marginLeft: -60 }]}
           />
           <Image
-            source={require('../assets/images/star-small.png')}
+            source={require('../assets/images/index/star-small.png')}
             style={[styles.starSmall, { marginLeft: 135 }]}
           />
         </View>
         <View style={styles.bottomStarsContainer}>
           <Image
-            source={require('../assets/images/star-big.png')}
+            source={require('../assets/images/index/star-big.png')}
             style={styles.starBig}
           />
           <Image
-            source={require('../assets/images/star-big.png')}
+            source={require('../assets/images/index/star-big.png')}
             style={styles.starBig}
           />
           <Image
-            source={require('../assets/images/star-big.png')}
+            source={require('../assets/images/index/star-big.png')}
             style={styles.starBig}
           />
         </View>
       </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Let's play</Text>
-      </TouchableOpacity>
+      <Button title="Let's play" onPress={() => router.push('/select-game')} backgroundStyle={styles.button} textStyle={styles.buttonText} />
       <Image
-        source={require('../assets/images/index-decor-1.png')}
+        source={require('../assets/images/index/index-decor-1.png')}
         style={styles.decorImage1}
       />
       <Image
-        source={require('../assets/images/index-decor-2.png')}
+        source={require('../assets/images/index/index-decor-2.png')}
         style={styles.decorImage2}
       />
-    </LinearGradient>
+    </Layout>
   );
 }
 
@@ -104,19 +105,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     width: 184,
     height: 48,
-    flexShrink: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
     marginTop: 59,
   },
   buttonText: {
     width: 111,
     height: 29,
-    flexShrink: 0,
     color: '#000',
-    fontFamily: 'Roboto',
     fontSize: 24,
-    fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: 29,
   },
