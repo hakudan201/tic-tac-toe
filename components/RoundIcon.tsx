@@ -1,24 +1,41 @@
-import { Image, View, StyleSheet } from "react-native";
+import React from "react";
+import { Image, View, StyleSheet, Text } from "react-native";
 
 interface RoundIconProps {
-    iconRound: any;
+    iconRound?: any;
     icon: any;
+    background?: any;
+    text?: string;
 }
 
 const RoundIcon: React.FC<RoundIconProps> = ({
     iconRound,
-    icon
+    icon,
+    background,
+    text
 }) => {
     return (
         <View style={styles.iconContainer}>
-            <Image
-                source={iconRound}
-                style={styles.iconRound}
-            />
-            <Image
-                source={icon}
-                style={styles.icon}
-            />
+            {background ? (
+                <View style={[styles.backgroundColor, background]}>
+                    {text ? <Text style={styles.text}>{text}</Text> : null}
+                    <Image
+                        source={icon}
+                        style={styles.icon}
+                    />
+                </View>
+            ) : (
+                <>
+                    <Image
+                        source={iconRound}
+                        style={styles.iconRound}
+                    />
+                    <Image
+                        source={icon}
+                        style={styles.icon}
+                    />
+                </>
+            )}
         </View>
     )
 }
@@ -37,9 +54,19 @@ const styles = StyleSheet.create({
         zIndex: 1,
     },
     icon: {
-        width: 71,
-        height: 69,
+        width: 60,
+        height: 60,
         zIndex: 2,
+    },
+    backgroundColor: {
+        borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    text: {
+        color: 'white',
+        fontSize:12,
+        marginBottom: 3,
     }
 });
 

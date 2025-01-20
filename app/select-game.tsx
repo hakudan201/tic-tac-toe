@@ -30,11 +30,11 @@ export default function NewGame() {
         </View>
       </View>
 
-      <ModeButton title={'Single Player'} onPress={() => { }}
+      <ModeButton title={'Single Player'} onPress={() => { router.push('/game-page?mode=single') }}
         backgroundImage={require('../assets/images/select-game/button-icon-1-rect.png')}
         iconRound={require('../assets/images/select-game/button-icon-1-round.png')}
         icon={require('../assets/images/select-game/button-icon-1.png')} />
-      <ModeButton title={'Two Players'} onPress={() => { }}
+      <ModeButton title={'Two Players'} onPress={() => { router.push('/game-page?mode=two') }}
         backgroundImage={require('../assets/images/select-game/button-icon-2-rect.png')}
         iconRound={require('../assets/images/select-game/button-icon-2-round.png')}
         icon={require('../assets/images/select-game/button-icon-2.png')} />

@@ -19,11 +19,11 @@ const ModeButton: React.FC<ModeButtonProps> = ({
     icon
 }) => {
     return (
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginRight: 20, marginTop: 50}}>
-            <RoundIcon iconRound={iconRound} icon={icon}/>
-            <Button title={title} onPress={() => { }}
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginRight: 20, marginTop: 50 }}>
+            <RoundIcon iconRound={iconRound} icon={icon} />
+            <Button title={title} onPress={onPress}
                 backgroundImage={backgroundImage}
-                backgroundStyle={styles.button} textStyle={styles.buttonText}/>
+                backgroundStyle={styles.button} textStyle={styles.buttonText} />
         </View>
     );
 };
